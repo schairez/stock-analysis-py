@@ -40,33 +40,27 @@ async def fetch(session, symbol, url):
             logger.info(
                 "Got response [%s] for URL: %s with symbol: %s", response.status, url, symbol)
             data = await response.json()
-            print(data)
-            # async with aiofiles.open(f'./data/data_{symbol}.json', 'w') as outfile:
-            #     await outfile.write(data)
-            # logger.info("Wrote results for source URL: %s", url)
+            write_json_file(symbol, data)
 
 
-async def write_json_file(url, data, symbol):
-    async with aiofiles.open(f'./data/data_{symbol}.json', 'w') as outfile:
-        await outfile.write(data)
-    logger.info("Wrote results for source URL: %s", url)
-    # with open(output_file, "w") as write_json:
-    #     json.dump(d, write_json, indent=2, sort_keys=False)
+def write_json_file(symbol, data):
+    with open(f'../data/data_{symbol}.json', "w") as write_json:
+        json.dump(data, write_json, indent=2, sort_keys=False)
+
+    logger.info("Wrote results for symbol: %s", symbol)
 
 
 # +"datatype=csv"
 
+# call frequency is 5 calls per minute
 
 if __name__ == "__main__":
     Stock = namedtuple('Stock', ['symbol', 'url'])
+    symbols = ['ibm', 'aapl', 'tsla', 'msft', 'nflx', 'amzn']
+    Stocks = [Stock(symbol, API_URL_TIME_SERIES_ADJ +
+                    symbol + "&outputsize=full" + f"&apikey={ALPHA_VANTAGE_API_KEY}") for symbol in symbols]
+
     print(ALPHA_VANTAGE_API_KEY)
     loop = asyncio.get_event_loop()
     loop.set_debug(True)
-
-    symbols = ['ibm', 'aapl', 'tsla']
-    Stocks = [Stock(symbol, API_URL_TIME_SERIES_ADJ +
-                    symbol + f"&apikey={ALPHA_VANTAGE_API_KEY}") for symbol in symbols]
-
-    print(Stocks)
     loop.run_until_complete(fetch_all(Stocks,  loop))
-    # print(time_series_api_urls)
