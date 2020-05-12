@@ -73,7 +73,9 @@ class FetchAlphaVantage(object):
 
 
 if __name__ == "__main__":
-    symbols: list = ['aapl', 'abt', 'adbe', 'amd', 'amzn', 'baba', 'brkb', 'c', 'cmcsa', 'cost', 'crm', 'dell', 'f', 'fb', 'googl', 'ibm', 'intc',
-                     'intu', 'jnj', 'jpm', 'msft', 'mu', 'nflx', 'nke', 'nvda', 'orcl', 'pfe', 'pg', 'pypl', 'sbux', 't', 'tsla', 'twtr', 'unh', 'v', 'vz', 'wfc', 'wmt']
+    symbols: list = ['aapl', 'abt', 'adbe', 'amd', 'amzn', 'baba',
+                     'brkb', 'c', 'cmcsa', 'cost', 'crm', 'dell', 'f', 'fb', 'googl', 'ibm', 'intc',
+                     'intu', 'jnj', 'jpm', 'msft', 'mu', 'nflx', 'nke', 'nvda', 'orcl', 'pfe', 'pg',
+                     'pypl', 'sbux', 't', 'tsla', 'twtr', 'unh', 'v', 'vz', 'wfc', 'wmt']
 
     FetchAlphaVantage(symbols=symbols)
