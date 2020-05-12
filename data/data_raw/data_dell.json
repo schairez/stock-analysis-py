@@ -2,11 +2,51 @@
   "Meta Data": {
     "1. Information": "Daily Time Series with Splits and Dividend Events",
     "2. Symbol": "dell",
-    "3. Last Refreshed": "2020-05-06",
+    "3. Last Refreshed": "2020-05-12",
     "4. Output Size": "Full size",
     "5. Time Zone": "US/Eastern"
   },
   "Time Series (Daily)": {
+    "2020-05-12": {
+      "1. open": "43.5400",
+      "2. high": "43.7900",
+      "3. low": "42.2500",
+      "4. close": "42.2500",
+      "5. adjusted close": "42.2500",
+      "6. volume": "2170131",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
+    "2020-05-11": {
+      "1. open": "43.2600",
+      "2. high": "43.7700",
+      "3. low": "42.5300",
+      "4. close": "43.3700",
+      "5. adjusted close": "43.3700",
+      "6. volume": "1592646",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
+    "2020-05-08": {
+      "1. open": "42.4000",
+      "2. high": "43.8000",
+      "3. low": "42.2600",
+      "4. close": "43.6500",
+      "5. adjusted close": "43.6500",
+      "6. volume": "2100366",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
+    "2020-05-07": {
+      "1. open": "41.0600",
+      "2. high": "41.8300",
+      "3. low": "40.8600",
+      "4. close": "41.7500",
+      "5. adjusted close": "41.7500",
+      "6. volume": "1119797",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
     "2020-05-06": {
       "1. open": "40.6000",
       "2. high": "41.1300",

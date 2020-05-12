@@ -2,11 +2,51 @@
   "Meta Data": {
     "1. Information": "Daily Time Series with Splits and Dividend Events",
     "2. Symbol": "v",
-    "3. Last Refreshed": "2020-05-06",
+    "3. Last Refreshed": "2020-05-12",
     "4. Output Size": "Full size",
     "5. Time Zone": "US/Eastern"
   },
   "Time Series (Daily)": {
+    "2020-05-12": {
+      "1. open": "183.5600",
+      "2. high": "183.9900",
+      "3. low": "179.3700",
+      "4. close": "179.4700",
+      "5. adjusted close": "179.4700",
+      "6. volume": "8174675",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
+    "2020-05-11": {
+      "1. open": "183.8700",
+      "2. high": "184.6200",
+      "3. low": "181.4300",
+      "4. close": "183.5600",
+      "5. adjusted close": "183.5600",
+      "6. volume": "8679845",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
+    "2020-05-08": {
+      "1. open": "185.0300",
+      "2. high": "185.7500",
+      "3. low": "183.6200",
+      "4. close": "185.0900",
+      "5. adjusted close": "185.0900",
+      "6. volume": "6469771",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
+    "2020-05-07": {
+      "1. open": "181.7500",
+      "2. high": "184.9800",
+      "3. low": "181.7100",
+      "4. close": "182.7200",
+      "5. adjusted close": "182.7200",
+      "6. volume": "9248909",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
     "2020-05-06": {
       "1. open": "179.7200",
       "2. high": "180.5100",

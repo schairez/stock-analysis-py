@@ -2,18 +2,58 @@
   "Meta Data": {
     "1. Information": "Daily Time Series with Splits and Dividend Events",
     "2. Symbol": "msft",
-    "3. Last Refreshed": "2020-05-06",
+    "3. Last Refreshed": "2020-05-12",
     "4. Output Size": "Full size",
     "5. Time Zone": "US/Eastern"
   },
   "Time Series (Daily)": {
+    "2020-05-12": {
+      "1. open": "186.9000",
+      "2. high": "187.0400",
+      "3. low": "182.3000",
+      "4. close": "182.5100",
+      "5. adjusted close": "182.5100",
+      "6. volume": "31673903",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
+    "2020-05-11": {
+      "1. open": "183.1500",
+      "2. high": "187.5100",
+      "3. low": "182.8500",
+      "4. close": "186.7400",
+      "5. adjusted close": "186.7400",
+      "6. volume": "30892660",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
+    "2020-05-08": {
+      "1. open": "184.9797",
+      "2. high": "185.0000",
+      "3. low": "183.3600",
+      "4. close": "184.6800",
+      "5. adjusted close": "184.6800",
+      "6. volume": "30912638",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
+    "2020-05-07": {
+      "1. open": "184.1700",
+      "2. high": "184.5500",
+      "3. low": "182.5800",
+      "4. close": "183.6000",
+      "5. adjusted close": "183.6000",
+      "6. volume": "28315992",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
     "2020-05-06": {
       "1. open": "182.0800",
       "2. high": "184.2000",
       "3. low": "181.6306",
       "4. close": "182.5400",
       "5. adjusted close": "182.5400",
-      "6. volume": "32029937",
+      "6. volume": "32139299",
       "7. dividend amount": "0.0000",
       "8. split coefficient": "1.0000"
     },
@@ -50284,46 +50324,6 @@
       "4. close": "67.8700",
       "5. adjusted close": "21.8204",
       "6. volume": "29195400",
-      "7. dividend amount": "0.0000",
-      "8. split coefficient": "1.0000"
-    },
-    "2000-05-10": {
-      "1. open": "67.7500",
-      "2. high": "67.8700",
-      "3. low": "65.7500",
-      "4. close": "66.1900",
-      "5. adjusted close": "21.2803",
-      "6. volume": "33870000",
-      "7. dividend amount": "0.0000",
-      "8. split coefficient": "1.0000"
-    },
-    "2000-05-09": {
-      "1. open": "70.1900",
-      "2. high": "70.4400",
-      "3. low": "67.5000",
-      "4. close": "67.8100",
-      "5. adjusted close": "21.8011",
-      "6. volume": "30389200",
-      "7. dividend amount": "0.0000",
-      "8. split coefficient": "1.0000"
-    },
-    "2000-05-08": {
-      "1. open": "70.9400",
-      "2. high": "71.3700",
-      "3. low": "69.6900",
-      "4. close": "69.8100",
-      "5. adjusted close": "22.4441",
-      "6. volume": "18093800",
-      "7. dividend amount": "0.0000",
-      "8. split coefficient": "1.0000"
-    },
-    "2000-05-05": {
-      "1. open": "70.2500",
-      "2. high": "71.8100",
-      "3. low": "69.8700",
-      "4. close": "71.1200",
-      "5. adjusted close": "22.8653",
-      "6. volume": "18201100",
       "7. dividend amount": "0.0000",
       "8. split coefficient": "1.0000"
     }

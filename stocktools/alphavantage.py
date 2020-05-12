@@ -21,7 +21,9 @@ class FetchAlphaVantage(object):
         "TIME_SERIES_DAILY_ADJUSTED&symbol="
     _RATE_LIMIT = 5
 
-    def __init__(self, api_key=None, symbols: list = []):
+    def __init__(self, api_key=None,
+                 symbols: list = [],
+                 out_path='../data/data_raw/'):
 
         if api_key is None:
             api_key = os.environ.get('ALPHA_VANTAGE_API_KEY')
@@ -30,7 +32,7 @@ class FetchAlphaVantage(object):
                 'you need to provide a valid Alpha Vantage API key')
         if not isinstance(symbols, list):
             raise ValueError('symbols parameter needs to be a list type')
-
+        self._out_path = out_path
         StockInfo: tuple = namedtuple('Stock', ['symbol', 'url'])
         self._stocks_meta: list = [
             StockInfo(symbol,
@@ -41,9 +43,7 @@ class FetchAlphaVantage(object):
 
         self._loop = asyncio.get_event_loop()
         self._loop.set_debug(True)
-        rate_limit = 5
-        self._sema = asyncio.Semaphore(rate_limit)
-        # self.session = aiohttp.ClientSession(loop=self._loop)
+        self._sema = asyncio.Semaphore(FetchAlphaVantage._RATE_LIMIT)
         self._loop.run_until_complete(self._fetch_all())
 
     async def _fetch_all(self):
@@ -60,13 +60,13 @@ class FetchAlphaVantage(object):
                 "Got response [%s] for URL: %s with symbol: %s", response.status, url, symbol)
             data = await response.json()
             # print(data)
-            FetchAlphaVantage._write_json_file(symbol, data)
+            FetchAlphaVantage._write_json_file(self._out_path, symbol, data)
             await asyncio.sleep(60)
             # 5 calls per minute are permitted by this API
 
-    @classmethod
-    def _write_json_file(cls, symbol, data):
-        with open(f'../data/data_test/data_{symbol}.json', "w") as write_json:
+    @staticmethod
+    def _write_json_file(out_path, symbol, data):
+        with open(f'../data/data_raw/data_{symbol}.json', "w") as write_json:
             json.dump(data, write_json, indent=2, sort_keys=False)
 
         log.info("Wrote results for symbol: %s", symbol)

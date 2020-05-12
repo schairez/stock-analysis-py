@@ -2,18 +2,58 @@
   "Meta Data": {
     "1. Information": "Daily Time Series with Splits and Dividend Events",
     "2. Symbol": "nflx",
-    "3. Last Refreshed": "2020-05-06",
+    "3. Last Refreshed": "2020-05-12",
     "4. Output Size": "Full size",
     "5. Time Zone": "US/Eastern"
   },
   "Time Series (Daily)": {
+    "2020-05-12": {
+      "1. open": "442.0000",
+      "2. high": "444.1700",
+      "3. low": "431.3600",
+      "4. close": "431.8200",
+      "5. adjusted close": "431.8200",
+      "6. volume": "4535899",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
+    "2020-05-11": {
+      "1. open": "436.3300",
+      "2. high": "444.8899",
+      "3. low": "435.5600",
+      "4. close": "440.5200",
+      "5. adjusted close": "440.5200",
+      "6. volume": "5486037",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
+    "2020-05-08": {
+      "1. open": "434.1400",
+      "2. high": "442.0000",
+      "3. low": "433.6389",
+      "4. close": "435.5500",
+      "5. adjusted close": "435.5500",
+      "6. volume": "5054308",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
+    "2020-05-07": {
+      "1. open": "436.8900",
+      "2. high": "438.8800",
+      "3. low": "430.6600",
+      "4. close": "436.5300",
+      "5. adjusted close": "436.5300",
+      "6. volume": "5650281",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
     "2020-05-06": {
       "1. open": "429.3000",
       "2. high": "439.7700",
       "3. low": "426.3850",
       "4. close": "434.2600",
       "5. adjusted close": "434.2600",
-      "6. volume": "6609294",
+      "6. volume": "6660737",
       "7. dividend amount": "0.0000",
       "8. split coefficient": "1.0000"
     },
