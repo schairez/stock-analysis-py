@@ -2,11 +2,16 @@ import json
 import pandas as pd
 
 
-def df_from_response(file_name: str,
-                     columns=['Date', 'Open', 'High', 'Low', 'Close', 'AdjClose', 'Volume']):
+def json_to_df(file_name: str,
+               path=None,
+               columns=['Date', 'Open', 'High', 'Low', 'Close', 'AdjClose', 'Volume']):
 
     def read_json_file(file_name: str) -> dict:
-        with open(f'../../data/data_raw/{file_name}') as f:
+        if path is None:
+            path_to_file = f'../../data/data_raw/{file_name}'
+        else:
+            path_to_file = path
+        with open(path_to_file) as f:
             return json.load(f)
 
     def convert_response(d):

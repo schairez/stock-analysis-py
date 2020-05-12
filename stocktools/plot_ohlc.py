@@ -73,7 +73,7 @@ def plot_ohlc(co_df: pd.DataFrame, title: str = ""):
     # fig.write_image('figure.png')
 
 
-if __name__ == "__main__":
-    from json_to_df import df_from_response
-    aapl_df = df_from_response('data_aapl.json', )
-    plot_ohlc(aapl_df, title="Apple Stock")
+# if __name__ == "__main__":
+#     from json_to_df import df_from_response
+#     aapl_df = df_from_response('data_aapl.json', )
+#     plot_ohlc(aapl_df, title="Apple Stock")
