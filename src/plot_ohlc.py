@@ -2,7 +2,7 @@ import plotly.graph_objects as go
 import pandas as pd
 
 
-def plot_ohlc(co_df: pd.DataFrame):
+def plot_ohlc(co_df: pd.DataFrame, title: str):
 
     hovertext = []
     for i in range(len(co_df['Open'])):
@@ -21,7 +21,7 @@ def plot_ohlc(co_df: pd.DataFrame):
                                         text=hovertext,
                                         hoverinfo='text'),
                     layout=go.Layout(
-        title="AAPL Stock",
+        title=title,
         width=1200,
         height=600,
         xaxis_rangeslider_visible=False)
@@ -75,5 +75,5 @@ def plot_ohlc(co_df: pd.DataFrame):
 
 if __name__ == "__main__":
     from json_to_df import df_from_response
-    aapl_df = df_from_response('data_aapl.json')
+    aapl_df = df_from_response('data_aapl.json', title="Apple Stock")
     plot_ohlc(aapl_df)
