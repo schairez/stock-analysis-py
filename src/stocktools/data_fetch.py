@@ -1,3 +1,4 @@
+
 import os
 import json
 import logging
@@ -7,6 +8,8 @@ import asyncio
 # import aiofiles
 import sys
 from collections import namedtuple
+
+# https://github.com/RomelTorres/alpha_vantage/blob/develop/alpha_vantage/alphavantage.py
 
 __author__ = 'Sergio Chairez'
 
@@ -47,7 +50,7 @@ async def fetch(sema, session, symbol, url):
 
 
 def write_json_file(symbol, data):
-    with open(f'../data/data_raw/data_{symbol}.json', "w") as write_json:
+    with open(f'../../data/data_raw/data_{symbol}.json', "w") as write_json:
         json.dump(data, write_json, indent=2, sort_keys=False)
 
     log.info("Wrote results for symbol: %s", symbol)

@@ -6,7 +6,7 @@ def df_from_response(file_name: str,
                      columns=['Date', 'Open', 'High', 'Low', 'Close', 'AdjClose', 'Volume']):
 
     def read_json_file(file_name: str) -> dict:
-        with open(f'../data/data_raw/{file_name}') as f:
+        with open(f'../../data/data_raw/{file_name}') as f:
             return json.load(f)
 
     def convert_response(d):
