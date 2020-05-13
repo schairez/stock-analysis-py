@@ -8,7 +8,7 @@ def json_to_df(file_name: str,
 
     def read_json_file(file_name: str) -> dict:
         if path is None:
-            path_to_file = f'../../data/data_raw/{file_name}'
+            path_to_file = f'../data/data_raw/{file_name}'
         else:
             path_to_file = path
         with open(path_to_file) as f:
@@ -21,13 +21,14 @@ def json_to_df(file_name: str,
             yield r
 
     df = pd.DataFrame(convert_response(read_json_file(file_name)))
-    # rename the columns
-    df = df.rename(columns={'1. open': 'Open',
-                            '2. high': 'High',
-                            '3. low': 'Low',
-                            '4. close': 'Close',
-                            '5. adjusted close': 'AdjClose',
-                            '6. volume': 'Volume'})
+    df.rename(columns={'1. open': 'Open',
+                       '2. high': 'High',
+                       '3. low': 'Low',
+                       '4. close': 'Close',
+                       '5. adjusted close': 'AdjClose',
+                       '6. volume': 'Volume',
+                       '7. dividend amount': 'DivAmount',
+                       '8. split coefficient': 'SplitRatio'}, inplace=True)
 
     df['Date'] = pd.to_datetime(df['Date'])
     df[["Open", "High", "Low", "Close", "AdjClose"]] = df[[
@@ -37,6 +38,13 @@ def json_to_df(file_name: str,
     df["AdjOpen"] = df["Open"] * df["AdjFactor"]
     df["AdjHigh"] = df["High"] * df["AdjFactor"]
     df["AdjLow"] = df["Low"] * df["AdjFactor"]
+
+    df.sort_values(by=['Date'], inplace=True)
+
+    df['SMA_20day'] = df[['AdjClose']].rolling(window=20).mean()
+
+    df['EMA_20day'] = df[['AdjClose']].ewm(
+        span=20, min_periods=20, adjust=False).mean()
 
     # df.set_index('Date', inplace=True)
     # df.sort_index(inplace=True)

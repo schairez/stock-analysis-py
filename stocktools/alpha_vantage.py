@@ -1,4 +1,10 @@
 
+"""
+License: MIT
+Copyright (c) 2020 - Sergio Chairez 
+"""
+
+
 import os
 import json
 import logging
