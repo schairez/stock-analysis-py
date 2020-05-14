@@ -11,8 +11,6 @@ from flask import Flask
 from stocktools.json_to_df import json_to_df
 
 
-# def plot_dashboard(co_df: pd.DataFrame, title: str = ""):
-
 colors = {
     'background': '#00336c',  # onyx
     'text': '#e2efff'
@@ -33,7 +31,9 @@ dropdown_options = [
     {'label': 'JP Morgan Chase', 'value': 'JPM'},
 ]
 
-app = dash.Dash(__name__)
+external_stylesheets = ["/assets/style.css"]
+
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets,)
 app.layout = html.Div([
     html.Div(
         html.H2(
@@ -143,7 +143,7 @@ def make_ohlc_graph(symbolDropdown: str):
         # height=600,
         # plot_bgcolor=colors['background'],
         paper_bgcolor='#F9F9F9',
-        xaxis_rangeslider_visible=False)
+        xaxis_rangeslider_visible=True)
     )
     print(type(fig))
 
@@ -187,6 +187,8 @@ def make_ohlc_graph(symbolDropdown: str):
     )
 
     return fig
+
+
 # style={
 #     "display": "flex",
 #     "flex-direction": "column"
@@ -215,7 +217,6 @@ def make_ohlc_graph(symbolDropdown: str):
 #             figure=fig), ]
 # )
 # html.Label('OHLC Graph'),
-
 
 if __name__ == "__main__":
 

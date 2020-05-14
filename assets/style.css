@@ -1,43 +1,40 @@
 /* body {
-    background-color: #001731;
+  color: #a3a7b0;
+  background-color: #23272c;
 } */
 
 h2 {
-    /* font-size: 3.6rem; */
-    line-height: 1.25;
-    letter-spacing: -.1rem;
-    margin-bottom: 0px;
-    margin-top: 1rem;
+  /* font-size: 3.6rem; */
+  line-height: 1.25;
+  letter-spacing: -0.1rem;
+  margin-bottom: 0px;
+  margin-top: 1rem;
 }
 
-
 #mainContainer {
-    display: "flex";
-    flex-direction: "column";
-
+  display: "flex";
+  flex-direction: "column";
 }
 
 .pretty_container {
-    border-radius: 5px;
-    background-color: #F9F9F9;
-    margin: 10px;
-    padding: 15px;
-    position: relative;
-    box-shadow: 2px 2px 2px lightgrey;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  margin: 10px;
+  padding: 15px;
+  position: relative;
+  box-shadow: 2px 2px 2px lightgrey;
 }
 
-
-
 #symbolDropdown {
-    /* background-color: green; */
-    color: black;
-    border-radius: inherit;
-    text-align: center;
-    display: flex;
-    padding: 0.5em 5em;
-    justify-content: center;
-    font-family: "Poppins", sans-serif;
-    background-color: inherit;
+  /* background-color: green; */
+  color: black;
+  border-radius: inherit;
+  text-align: center;
+  display: flex;
+  padding: 0.5em 5em;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  background-color: inherit;
 }
 
 /* .horizontal_dropdowns {
