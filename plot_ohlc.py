@@ -126,16 +126,33 @@ def make_ohlc_graph(symbolDropdown: str):
             '<br>L: '+str(round(co_df['AdjLow'][i], 4)) +
             '\tC: '+str(co_df['AdjClose'][i]))
 
-    fig = go.Figure(data=go.Candlestick(x=co_df['Date'],
-                                        open=co_df['AdjOpen'],
-                                        high=co_df['AdjHigh'],
-                                        low=co_df['AdjLow'],
-                                        close=co_df['AdjClose'],
-                                        text=hovertext,
-                                        hoverinfo='text',
-                                        # increasing_line_color='#0048BA',
-                                        # decreasing_line_color='#E60000'
-                                        ),
+    trace_ohlc = go.Candlestick(x=co_df['Date'],
+                                open=co_df['AdjOpen'],
+                                high=co_df['AdjHigh'],
+                                low=co_df['AdjLow'],
+                                close=co_df['AdjClose'],
+                                text=hovertext,
+                                hoverinfo='text',
+                                name="OHLC"
+                                # increasing_line_color='#0048BA',
+                                # decreasing_line_color='#E60000'
+                                )
+    trace_sma_20_day = go.Scatter(
+        x=co_df['Date'], y=co_df['SMA_20day'], name="SMA_20day", visible=True)
+    trace_ema_20_day = go.Scatter(
+        x=co_df['Date'], y=co_df['EMA_20day'], name="EMA_20day")
+
+    fig = go.Figure(data=[trace_ohlc, trace_sma_20_day, trace_ema_20_day],
+                    # go.Candlestick(x=co_df['Date'],
+                    #                                     open=co_df['AdjOpen'],
+                    #                                     high=co_df['AdjHigh'],
+                    #                                     low=co_df['AdjLow'],
+                    #                                     close=co_df['AdjClose'],
+                    #                                     text=hovertext,
+                    #                                     hoverinfo='text',
+                    #                                     # increasing_line_color='#0048BA',
+                    #                                     # decreasing_line_color='#E60000'
+                    #                                     ),
 
                     layout=go.Layout(
         title=title,

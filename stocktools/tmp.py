@@ -116,7 +116,7 @@ def plot_ohlc(co_df: pd.DataFrame, title: str = ""):
 
 if __name__ == "__main__":
     # import .json_to_df as js
-    from json_to_df import json_to_df
+    # from json_to_df import json_to_df
     #     from .plot_ohlc import json_to_df
 
     aapl_df = json_to_df('data_aapl.json', )
