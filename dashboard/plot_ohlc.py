@@ -9,9 +9,10 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 
 from flask import Flask
+from stocktools.json_to_df import json_to_df
 
 
-def plot_ohlc(co_df: pd.DataFrame, title: str = ""):
+def plot_dashboard(co_df: pd.DataFrame, title: str = ""):
 
     colors = {
         'background': '#00336c',  # onyx
@@ -84,13 +85,16 @@ def plot_ohlc(co_df: pd.DataFrame, title: str = ""):
     )
 
     dropdown_options = [
-        {'label': 'Apple Inc',
-         'value': 'AAPL'},
-        {'label': 'Amazon',
-         'value': 'AMZN'},
         {'label': 'Adobe', 'value': 'ADBE'},
-        {'label': 'Netflix',
-         'value': 'NFLX'}
+        {'label': 'Apple Inc', 'value': 'AAPL'},
+        {'label': 'Amazon', 'value': 'AMZN'},
+        {'label': 'Netflix', 'value': 'NFLX'},
+        {'label': 'Nike', 'value': 'NKE'},
+        {'label': 'Oracle', 'value': 'ORCL'},
+        {'label': 'Tesla', 'value': 'TSLA'},
+        {'label': 'Intuit', 'value': 'INTU'},
+        {'label': 'Johnson & Johnson', 'value': 'JNJ'},
+        {'label': 'JP Morgan Chase', 'value': 'JPM'},
     ]
 
     app = dash.Dash(__name__)
