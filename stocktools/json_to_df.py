@@ -47,7 +47,7 @@ def json_to_df(file_name: str,
         span=20, min_periods=20, adjust=False).mean()
 
     # df.set_index('Date', inplace=True)
-    # df.sort_index(inplace=True)
+    df.sort_index(inplace=True)
     # extract the default columns
     # df = df[columns]
     return df
