@@ -1,7 +1,8 @@
-/* body {
-  color: #a3a7b0;
-  background-color: #23272c;
-} */
+body {
+  /* color: #a3a7b0; */
+  background-color: #f3f3f1;
+  font-family: Poppins, sans-serif;
+}
 
 h2 {
   /* font-size: 3.6rem; */
@@ -11,10 +12,10 @@ h2 {
   margin-top: 1rem;
 }
 
-#mainContainer {
+/* #mainContainer {
   display: "flex";
   flex-direction: "column";
-}
+} */
 
 .pretty_container {
   border-radius: 5px;
@@ -23,6 +24,69 @@ h2 {
   padding: 15px;
   position: relative;
   box-shadow: 2px 2px 2px lightgrey;
+}
+
+/* margin-top: 10px;
+  margin-left: -100px; */
+/* bring your own prefixes */
+/* transform: translate(-50%, -50%); */
+/* position: fixed; */
+
+.plot_selection_panel {
+  display: inline-block;
+  height: 13vh;
+  width: 80vw;
+  margin: auto;
+  /* margin: 10px; */
+  padding: 15px;
+  top: 50%;
+  left: 20%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tabs_view {
+  float: none !important;
+  display: flex;
+  justify-content: center !important;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 
+.tabs_view {
+  display: inline-block;
+  justify-content: center;
+  padding: 0px 24px;
+  border-top-left-radius: 3px;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+  /* transform: translate(-50%, -50%); */
+/* } */
+
+.plot_panel_size {
+  /* height: 64vh;
+  width: 75vw;
+  position: relative;
+  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px; */
+  height: 70vh;
+  width: 80vw;
+  /* margin: auto; */
+  margin: 10px;
+  padding: 5px;
+  top: 50%;
+  /* left: 2%; */
+  /* position: relative; */
+  display: inline-block;
+  /* margin-left: auto;
+  margin-right: auto; */
 }
 
 #symbolDropdown {
