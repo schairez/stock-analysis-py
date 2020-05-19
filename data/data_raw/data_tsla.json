@@ -2,18 +2,68 @@
   "Meta Data": {
     "1. Information": "Daily Time Series with Splits and Dividend Events",
     "2. Symbol": "tsla",
-    "3. Last Refreshed": "2020-05-12",
+    "3. Last Refreshed": "2020-05-19",
     "4. Output Size": "Full size",
     "5. Time Zone": "US/Eastern"
   },
   "Time Series (Daily)": {
+    "2020-05-19": {
+      "1. open": "815.1700",
+      "2. high": "822.0700",
+      "3. low": "806.0800",
+      "4. close": "808.0000",
+      "5. adjusted close": "808.0000",
+      "6. volume": "9523292",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
+    "2020-05-18": {
+      "1. open": "827.7800",
+      "2. high": "834.7201",
+      "3. low": "803.8800",
+      "4. close": "813.6300",
+      "5. adjusted close": "813.6300",
+      "6. volume": "11580953",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
+    "2020-05-15": {
+      "1. open": "790.3500",
+      "2. high": "805.0486",
+      "3. low": "786.5520",
+      "4. close": "799.1700",
+      "5. adjusted close": "799.1700",
+      "6. volume": "10518428",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
+    "2020-05-14": {
+      "1. open": "780.0000",
+      "2. high": "803.3600",
+      "3. low": "764.0000",
+      "4. close": "803.3300",
+      "5. adjusted close": "803.3300",
+      "6. volume": "13682188",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
+    "2020-05-13": {
+      "1. open": "820.8300",
+      "2. high": "826.0000",
+      "3. low": "763.3000",
+      "4. close": "790.9600",
+      "5. adjusted close": "790.9600",
+      "6. volume": "19065491",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
     "2020-05-12": {
       "1. open": "827.0000",
       "2. high": "843.2900",
       "3. low": "808.0000",
       "4. close": "809.4100",
       "5. adjusted close": "809.4100",
-      "6. volume": "15671509",
+      "6. volume": "15906905",
       "7. dividend amount": "0.0000",
       "8. split coefficient": "1.0000"
     },

@@ -2,18 +2,68 @@
   "Meta Data": {
     "1. Information": "Daily Time Series with Splits and Dividend Events",
     "2. Symbol": "pypl",
-    "3. Last Refreshed": "2020-05-12",
+    "3. Last Refreshed": "2020-05-19",
     "4. Output Size": "Full size",
     "5. Time Zone": "US/Eastern"
   },
   "Time Series (Daily)": {
+    "2020-05-19": {
+      "1. open": "146.7497",
+      "2. high": "149.7200",
+      "3. low": "145.2200",
+      "4. close": "145.3900",
+      "5. adjusted close": "145.3900",
+      "6. volume": "7646637",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
+    "2020-05-18": {
+      "1. open": "148.1250",
+      "2. high": "149.1800",
+      "3. low": "145.9900",
+      "4. close": "146.2400",
+      "5. adjusted close": "146.2400",
+      "6. volume": "8563227",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
+    "2020-05-15": {
+      "1. open": "142.9000",
+      "2. high": "145.8900",
+      "3. low": "141.6300",
+      "4. close": "145.5100",
+      "5. adjusted close": "145.5100",
+      "6. volume": "8361165",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
+    "2020-05-14": {
+      "1. open": "142.0700",
+      "2. high": "144.7000",
+      "3. low": "141.4300",
+      "4. close": "144.4100",
+      "5. adjusted close": "144.4100",
+      "6. volume": "9272877",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
+    "2020-05-13": {
+      "1. open": "140.2000",
+      "2. high": "145.1000",
+      "3. low": "139.6100",
+      "4. close": "143.7300",
+      "5. adjusted close": "143.7300",
+      "6. volume": "11142641",
+      "7. dividend amount": "0.0000",
+      "8. split coefficient": "1.0000"
+    },
     "2020-05-12": {
       "1. open": "144.0000",
       "2. high": "145.6500",
       "3. low": "140.9100",
       "4. close": "141.0300",
       "5. adjusted close": "141.0300",
-      "6. volume": "9716057",
+      "6. volume": "9757599",
       "7. dividend amount": "0.0000",
       "8. split coefficient": "1.0000"
     },

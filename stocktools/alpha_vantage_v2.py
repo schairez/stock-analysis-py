@@ -1,7 +1,7 @@
 
 """
 License: MIT
-Copyright (c) 2020 - Sergio Chairez 
+Copyright (c) 2020 - Sergio Chairez
 """
 
 
@@ -33,7 +33,8 @@ class FetchAlphaVantage(object):
     _RATE_LIMIT = 5
 
     def __init__(self, api_key=None, data_feed_type: str = "time_series_weekly_adjusted",
-                 symbols=None, symbol=None, from_ticker=None, to_ticker=None,
+                 symbols=None, symbol=None, from_symbol=None, to_symbol=None,
+                 from_currency=None, to_currency=None,
                  out_path='../data/data_raw/'):
 
         if api_key is None:
@@ -42,23 +43,41 @@ class FetchAlphaVantage(object):
             raise ValueError(
                 'you need to provide a valid Alpha Vantage API key')
 
+        self._data_feed_type = data_feed_type
+
         time_series: list = ["time_series_intraday", "time_series_daily",
                              "time_series_daily_adjusted", "time_series_weekly", "time_series_weekly_adjusted"]
-        currency_exchange: list = [
-            "currency_exchange_rate", "fx_intraday", "fx_daily", "fx_weekly", "fx_monthly"]
+        fx: list = ["fx_intraday", "fx_daily", "fx_weekly", "fx_monthly"]
 
         # if data_feed_type not in ["time_series", "currency_exchange_rate"]:
         #     raise ValueError("")
 
-        if data_feed_type == "quote_endpoint":
+        if self._data_feed_type == "quote_endpoint":
             self._symbol = symbol
             if self._symbol is None:
-                raise AttributeError("NoneType in symbol arg not allowed")
-            print(FetchAlphaVantage._quote_url(self._symbol))
+                raise AttributeError(
+                    "NoneType in symbol arg not allowed when data_feed_type is quote_endpoint")
+            self._url = FetchAlphaVantage._get_quote_url(
+                self._symbol) + f"&apikey={api_key}"
 
+        elif self._data_feed_type == "currency_exchange_rate":
+            self._from_currency = from_currency
+            self._to_currency = to_currency
+            if any(elem is None for elem in [self._from_currency, self._to_currency]):
+                raise AttributeError(
+                    "NoneType in from_currency or to_currency")
+            self._url = FetchAlphaVantage._get_currency_exchange_rate_url(
+                self._from_currency, self._to_currency) + f"&apikey={api_key}"
+
+        elif self._data_feed_type in fx:
+            self._from_symbol = from_symbol
+            self._to_symbol = to_symbol
+            if any(elem is None for elem in [self._from_symbol, self._to_symbol]):
+                raise AttributeError(
+                    "NoneType in from_symbol or to_symbol")
 
         # time series
-        elif data_feed_type in time_series:
+        elif self._data_feed_type in time_series:
             self._symbols = symbols or []
             if not self._symbols:
                 raise ValueError("symbols arg is an empty sequence")
@@ -73,22 +92,19 @@ class FetchAlphaVantage(object):
             self._loop = asyncio.get_event_loop()
             self._loop.set_debug(True)
             self._sema = asyncio.Semaphore(FetchAlphaVantage._RATE_LIMIT)
-            self._loop.run_until_complete(self._fetch_all())
-        # currency exchanges
-        elif data_feed_type in currency_exchange:
-            pass
+            self._loop.run_until_complete(self._fetch_all_historical())
 
         # elif data_feed_type in ["currency_exchange_rate"]:
         #     pass
 
-    async def _fetch_all(self):
+    async def _fetch_all_historical(self):
         # API call frequency is 5 calls per minute and
         # 500 calls per day, so we need to rate limit our requests :/
         async with aiohttp.ClientSession(loop=self._loop) as session:
-            await asyncio.gather(*[self._fetch(session, stock_meta.symbol, stock_meta.url) for stock_meta in self._stocks_meta],
+            await asyncio.gather(*[self._fetch_historical(session, stock_meta.symbol, stock_meta.url) for stock_meta in self._stocks_meta],
                                  return_exceptions=True)
 
-    async def _fetch(self, session, symbol, url):
+    async def _fetch_historical(self, session, symbol, url):
         async with self._sema, session.get(url) as response:
             response.raise_for_status()
             log.info(
@@ -96,21 +112,44 @@ class FetchAlphaVantage(object):
             data = await response.json()
             # print(data)
             FetchAlphaVantage._write_json_file(self._out_path, symbol, data)
-            await asyncio.sleep(60)
             # 5 calls per minute are permitted by this API
+            await asyncio.sleep(60)
+
+    def fetch_quote(self):
+        loop = asyncio.get_event_loop()
+        data = loop.run_until_complete(
+            self._fetch_quote(loop))
+        return data
+
+    async def _fetch_quote(self, loop):
+        async with aiohttp.ClientSession(loop=loop) as client:
+            async with client.get(self._url) as response:
+                assert response.status == 200
+                data = await response.json()
+                return data
 
     @classmethod
-    def _quote_url(cls, symbol):
+    def _get_fx_rate_url(cls, fn_param, from_symbol, to_symbol):
+        return cls._BASE_API_URL + f"{fn_param.upper()}" + f"&from_symbol={from_symbol}" \
+            + f"to_symbol={to_symbol}"
+
+    @classmethod
+    def _get_currency_exchange_rate_url(cls, from_currency, to_currency):
+        return cls._BASE_API_URL + "CURRENCY_EXCHANGE_RATE" + f"&from_currency={from_currency}" \
+            + f"&to_currency={to_currency}"
+
+    @classmethod
+    def _get_quote_url(cls, symbol):
         return cls._BASE_API_URL + "GLOBAL_QUOTE" + \
             "&symbol" + f"={symbol}"
 
     @classmethod
-    def _fx_weekly_url(cls, from_ticker: str, to_ticker: str):
+    def _fx_weekly_url(cls, from_symbol: str, to_symbol: str):
         return cls._BASE_API_URL + "FX_WEEKLY" + \
-            + f"&from_symbol={from_ticker}&to_symbol={to_ticker}"
+            + f"&from_symbol={from_symbol}&to_symbol={to_symbol}"
 
     @classmethod
-    def _fx_monthly_url(cls, from_ticker: str, to_ticker: str):
+    def _fx_monthly_url(cls, from_symbol: str, to_symbol: str):
         pass
 
     @staticmethod
@@ -128,4 +167,11 @@ if __name__ == "__main__":
                      'pypl', 'sbux', 't', 'tsla', 'twtr', 'unh', 'v', 'vz', 'wfc', 'wmt']
 
     # FetchAlphaVantage(symbols=symbols)
-    FetchAlphaVantage(data_feed_type="quote_endpoint", symbol="ibm")
+    # d = FetchAlphaVantage(data_feed_type="quote_endpoint",
+    #                       symbol="ibm").fetch_quote()
+    # d = FetchAlphaVantage(data_feed_type="currency_exchange_rate",
+    #                       from_currency="usd", to_currency="jpy").fetch_quote()
+
+    d = FetchAlphaVantage(data_feed_type="currency_exchange_rate",
+                          from_currency="usd", to_currency="mxn").fetch_quote()
+    print(d)
