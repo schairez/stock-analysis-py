@@ -25,6 +25,8 @@ class FetchAlphaVantage(object):
     _BASE_API_URL = "https://www.alphavantage.co/query?function="
     _API_URL_TIME_SERIES_ADJ = _BASE_API_URL + \
         "TIME_SERIES_DAILY_ADJUSTED&symbol="
+    _API_URL_FOREX_WEEKLY = _BASE_API_URL + "FX_WEEKLY"
+
     _RATE_LIMIT = 5
 
     def __init__(self, api_key=None,

@@ -4,7 +4,7 @@ import sys
 import pandas as pd
 import plotly.graph_objects as go
 import dash_bootstrap_components as dbc
-
+import os
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -50,7 +50,11 @@ dropdown_options = [
 # f3f3f1
 external_stylesheets = [dbc.themes.BOOTSTRAP, "/assets/style.css"]
 
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets,)
+server = Flask(__name__)
+
+
+app = dash.Dash(__name__, server=server,
+                external_stylesheets=external_stylesheets,)
 app.config.suppress_callback_exceptions = True
 app.server.config.suppress_callback_exceptions = True
 app.config['suppress_callback_exceptions'] = True
@@ -192,8 +196,11 @@ def render_page_content(pathname):
 )
 def render_ohlc_graph(symbolDropdown: str):
     print(symbolDropdown)
+    symbol_historical_data_path = os.path.join(os.path.dirname(
+        os.path.abspath(__file__)), f'data/data_raw/data_{symbolDropdown.lower()}.json')
+
     co_df = json_to_df(f"data_{symbolDropdown.lower()}.json",
-                       path=f"data/data_raw/data_{symbolDropdown.lower()}.json")
+                       path=symbol_historical_data_path)
 
     title = f"{symbolDropdown.lower()} Historical Graph"
     hovertext = []
