@@ -20,6 +20,12 @@ logging.basicConfig(
 )
 log = logging
 
+# TODO:
+# For exchange rates, latest price for ticker
+# only pull info if within the exchange rate window 6am PST - 2PM PST
+# temp store the data and check within an interval
+# there might be a decorator that handles these wrapped conditions
+
 
 class FetchAlphaVantage(object):
     _BASE_API_URL = "https://www.alphavantage.co/query?function="
